@@ -24,6 +24,33 @@
     ]
   },
   {
+    "id": "images",
+    "fields": [
+      {
+        "component": "multientry",
+        "name": "items",
+        "label": "Images",
+        "fields": [
+          {
+            "component": "reference",
+            "name": "image",
+            "label": "Image"
+          },
+          {
+            "component": "text",
+            "name": "alt",
+            "label": "Alt Text"
+          },
+          {
+            "component": "text",
+            "name": "caption",
+            "label": "Caption"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "image",
     "fields": [
       {
