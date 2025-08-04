@@ -325,6 +325,24 @@
     ]
   },
   {
+    "id": "tab",
+    "fields": [
+      {
+        "component": "text",
+        "name": "tab",
+        "label": "Tab Label",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "text",
+        "name": "tabText",
+        "label": "Tab Content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "video",
     "fields": [
       {
