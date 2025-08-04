@@ -221,9 +221,9 @@ function searchInput(block, config) {
   input.className = 'search-input';
   console.log(`config: ${JSON.stringify(config)}`);
   console.log(`config.placeholders: ${JSON.stringify(config.placeholders)}`);
-  console.log(`config.placeholders.searchPlaceholder: ${config.placeholders.searchPlaceholder}`);
+  console.log(`config.placeholders.searchPlaceholder: ${config.placeholders.placeholder}`);
 
-  const searchPlaceholder = config.placeholders.searchPlaceholder || 'Search...';
+  const searchPlaceholder = config.placeholders.placeholder || 'Search...';
   input.placeholder = searchPlaceholder;
   input.setAttribute('aria-label', searchPlaceholder);
 
