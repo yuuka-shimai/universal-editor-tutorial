@@ -142,6 +142,25 @@
     ]
   },
   {
+    "id": "accordion-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "summary",
+        "value": "",
+        "label": "Summary"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
@@ -156,6 +175,43 @@
         "name": "text",
         "value": "",
         "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "carousel-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media_image",
+        "label": "Background Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "media_imageAlt",
+        "value": "",
+        "label": "Bacgkround Alt"
+      },
+      {
+        "component": "richtext",
+        "name": "content_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "code",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "codecontent",
+        "label": "Code Content",
         "valueType": "string"
       }
     ]
@@ -180,12 +236,94 @@
     ]
   },
   {
+    "id": "embed",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "embed_placeholder",
+        "label": "Placeholder Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "embed_placeholderAlt",
+        "value": "",
+        "label": "Placeholder Image Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "embed_uri",
+        "label": "URI"
+      }
+    ]
+  },
+  {
+    "id": "form",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "reference",
+        "label": "Form"
+      },
+      {
+        "component": "text",
+        "name": "action",
+        "label": "Action URL",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
         "component": "aem-content",
         "name": "reference",
         "label": "Reference"
+      }
+    ]
+  },
+  {
+    "id": "heading",
+    "fields": [
+      {
+        "component": "text",
+        "name": "heading",
+        "label": "Heading"
+      },
+      {
+        "component": "select",
+        "name": "headingtype",
+        "label": "Heading Type",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
       }
     ]
   },
@@ -216,167 +354,65 @@
     ]
   },
   {
+    "id": "image",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "lists",
+    "fields": [
+      {
+        "component": "group",
+        "name": "listsettings",
+        "label": "List Settings",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "select",
+            "name": "listtype",
+            "label": "List Type",
+            "valueType": "string",
+            "options": [
+              {
+                "name": "Unordered List (ul)",
+                "value": "unordered"
+              },
+              {
+                "name": "Ordered List (ol)",
+                "value": "ordered"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "quote",
     "fields": [
       {
         "component": "richtext",
-        "name": "quote",
+        "valueType": "string",
+        "name": "quotation",
         "value": "",
-        "label": "Quote",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "author",
-        "label": "Author",
-        "value": ""
-      },
-      {
-        "component": "select",
-        "name": "classes",
-        "value": "",
-        "label": "Background Color",
-        "description": "The quote background color",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Red",
-            "value": "bg-red"
-          },
-          {
-            "name": "Green",
-            "value": "bg-green"
-          },
-          {
-            "name": "Blue",
-            "value": "bg-blue"
-          }
-        ]
-      }
-    ]
-  },
-    {
-    "id": "embed",
-    "fields": [
-      {
-        "component": "text",
-        "name": "url",
-        "label": "Embed URL",
-        "valueType": "string",
-        "required": true
-      },
-      {
-        "component": "text",
-        "name": "description",
-        "label": "Description",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "table",
-    "fields": [
-      {
-        "component": "table",
-        "name": "tableData",
-        "label": "Table Data"
-      },
-      {
-        "component": "text",
-        "name": "caption",
-        "label": "Table Caption",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "video",
-    "fields": [
-      {
-        "component": "text",
-        "name": "videoUrl",
-        "label": "Video URL",
-        "valueType": "string",
-        "required": true
-      },
-      {
-        "component": "text",
-        "name": "caption",
-        "label": "Caption",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "accordion",
-    "fields": [
-      {
-        "component": "multientry",
-        "name": "items",
-        "label": "Accordion Items",
-        "fields": [
-          {
-            "component": "text",
-            "name": "label",
-            "label": "Label",
-            "valueType": "string"
-          },
-          {
-            "component": "richtext",
-            "name": "content",
-            "label": "Content",
-            "valueType": "string"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "breadcrumbs",
-    "fields": [
-      {
-        "component": "aem-content",
-        "name": "breadcrumbItems",
-        "label": "Breadcrumb Items"
-      }
-    ]
-  },
-  {
-    "id": "carousel",
-    "fields": [
-      {
-        "component": "multientry",
-        "name": "slides",
-        "label": "Slides",
-        "fields": [
-          {
-            "component": "reference",
-            "name": "image",
-            "label": "Image"
-          },
-          {
-            "component": "richtext",
-            "name": "text",
-            "label": "Text"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "modal",
-    "fields": [
-      {
-        "component": "text",
-        "name": "label",
-        "label": "Label",
-        "valueType": "string"
+        "label": "Quotation"
       },
       {
         "component": "richtext",
-        "name": "modalContent",
-        "label": "Modal Content",
+        "name": "attribution",
+        "value": "",
+        "label": "Attribution",
         "valueType": "string"
       }
     ]
@@ -386,33 +422,234 @@
     "fields": [
       {
         "component": "text",
-        "name": "placeholder",
-        "label": "Placeholder Text",
+        "valueType": "string",
+        "name": "index",
+        "label": "Index"
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Search Type",
+            "children": [
+              {
+                "name": "Minimal",
+                "value": "minimal"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "table",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Border",
+            "children": [
+              {
+                "name": "Striped",
+                "value": "striped"
+              },
+              {
+                "name": "Bordered",
+                "value": "bordered"
+              }
+            ]
+          },
+          {
+            "name": "Header",
+            "children": [
+              {
+                "name": "No Header",
+                "value": "no-header"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "filter",
+        "label": "Columns",
+        "valueType": "string",
+        "value": "table",
+        "options": [
+          {
+            "name": "1 Column",
+            "value": "table"
+          },
+          {
+            "name": "2 Columns",
+            "value": "table-2-columns"
+          },
+          {
+            "name": "3 Columns",
+            "value": "table-3-columns"
+          },
+          {
+            "name": "4 Columns",
+            "value": "table-4-columns"
+          },
+          {
+            "name": "5 Columns",
+            "value": "table-5-columns"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "table-row",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column1text",
+        "label": "Column1"
+      }
+    ]
+  },
+  {
+    "id": "table-col-2",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column1text",
+        "label": "Column1"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column2text",
+        "label": "Column2"
+      }
+    ]
+  },
+  {
+    "id": "table-col-3",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column1text",
+        "label": "Column1"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column2text",
+        "label": "Column2"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column3text",
+        "label": "Column3"
+      }
+    ]
+  },
+  {
+    "id": "table-col-4",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column1text",
+        "label": "Column1"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column2text",
+        "label": "Column2"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column3text",
+        "label": "Column3"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column4text",
+        "label": "Column4"
+      }
+    ]
+  },
+  {
+    "id": "tabs-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tabName",
+        "value": "",
+        "label": "Tab Name"
+      },
+      {
+        "component": "richtext",
+        "name": "content",
+        "value": "",
+        "label": "Content",
         "valueType": "string"
       }
     ]
   },
   {
-    "id": "tabs",
+    "id": "video",
     "fields": [
       {
-        "component": "multientry",
-        "name": "tabs",
-        "label": "Tabs",
-        "fields": [
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "uri",
+        "label": "Video"
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "options": [
           {
-            "component": "text",
-            "name": "label",
-            "label": "Tab Label",
-            "valueType": "string"
-          },
-          {
-            "component": "richtext",
-            "name": "content",
-            "label": "Tab Content",
-            "valueType": "string"
+            "name": "Auto Play",
+            "children": [
+              {
+                "name": "AutoPlay",
+                "value": "autoplay"
+              }
+            ]
           }
         ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "placeholder_image",
+        "label": "Placeholder Image",
+        "multi": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "placeholder_imageAlt",
+        "value": "",
+        "label": "Placeholder Image Alt Text"
       }
     ]
   }

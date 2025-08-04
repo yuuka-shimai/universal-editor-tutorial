@@ -5,11 +5,50 @@
       "section"
     ]
   },
-
+  {
+    "id": "section",
+    "components": [
+      "heading",
+      "text",
+      "images",
+      "image",
+      "button",
+      "title",
+      "hero",
+      "cards",
+      "columns",
+      "fragment",
+      "quote",
+      "video",
+      "search",
+      "tabs",
+      "lists",
+      "code",
+      "embed",
+      "accordion",
+      "carousel",
+      "fragment",
+      "form",
+      "table",
+      "modal"
+    ]
+  },
+  {
+    "id": "accordion",
+    "components": [
+      "accordion-item"
+    ]
+  },
   {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "carousel-item"
     ]
   },
   {
@@ -28,26 +67,58 @@
     ]
   },
   {
-    "id": "section",
+    "id": "images",
+    "components": [
+      "image"
+    ]
+  },
+  {
+    "id": "lists",
+    "components": [
+      "list-item"
+    ]
+  },
+  {
+    "id": "list-item",
     "components": [
       "text",
       "image",
       "button",
-      "title",
-      "hero",
-      "cards",
-      "quote",
-      "columns",
-      "fragment",
-      "embed",
-      "table",
-      "video",
-      "accordion",
-      "breadcrumbs",
-      "carousel",
-      "modal",
-      "search",
-      "tabs"
+      "title"
     ]
+  },
+  {
+    "id": "table",
+    "components": [
+      "table-row"
+    ]
+  },
+  {
+    "id": "table-2-columns",
+    "components": [
+      "table-col-2"
+    ]
+  },
+  {
+    "id": "table-3-columns",
+    "components": [
+      "table-col-3"
+    ]
+  },
+  {
+    "id": "table-4-columns",
+    "components": [
+      "table-col-4"
+    ]
+  },
+  {
+    "id": "tabs",
+    "components": [
+      "tabs-item"
+    ]
+  },
+  {
+    "id": "video",
+    "components": []
   }
 ]
