@@ -57,14 +57,6 @@
               "value": "ol"
             }
           ]
-        },
-        {
-          "component": "number",
-          "valueType": "number",
-          "name": "level",
-          "label": "Nesting Level",
-          "value": 0,
-          "description": "0 for top level, 1 for nested, 2 for double nested, etc."
         }
       ]
     }
