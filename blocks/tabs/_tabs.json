@@ -56,13 +56,6 @@
       "components": [
         "tab"
       ]
-    },
-    {
-      "id": "tab",
-      "components": [
-        "text",
-        "richtext"
-      ]
     }
   ]
 }
