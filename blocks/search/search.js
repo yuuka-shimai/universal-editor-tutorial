@@ -1,6 +1,7 @@
 export default function decorate(block) {
+  console.log(JSON.stringify(block));
   // データ属性またはedsの渡し方によって取得方法が異なる場合があります
-  const placeholder = block.dataset.placeholder || 'Search...';
+  const placeholder = block.dataset.placeholder || 'Search....';
 
   const wrapper = document.createElement('div');
   wrapper.className = 'search-block-wrapper';
