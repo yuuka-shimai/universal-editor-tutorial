@@ -39,13 +39,12 @@
           "component": "text",
           "valueType": "string",
           "name": "tab",
-          "label": "Tab Label",
-          "required": true
+          "label": "Tab Label"
         },
         {
           "component": "richtext",
           "name": "tabText",
-          "label": "Tab Content",
+          "label": "Tab Text",
           "valueType": "string"
         }
       ]
