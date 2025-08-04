@@ -42,12 +42,6 @@
     ]
   },
   {
-    "id": "section",
-    "components": [
-      "headings"
-    ]
-  },
-  {
     "id": "images",
     "components": [
       "image"
