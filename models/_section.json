@@ -43,6 +43,7 @@
     {
       "id": "section",
       "components": [
+        "headings",
         "text",
         "images",
         "image",
