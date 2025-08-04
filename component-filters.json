@@ -5,7 +5,19 @@
       "section"
     ]
   },
-
+  {
+    "id": "section",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "hero",
+      "cards",
+      "columns",
+      "fragment"
+    ]
+  },
   {
     "id": "cards",
     "components": [
@@ -22,34 +34,15 @@
     "id": "column",
     "components": [
       "text",
-      "images",
       "image",
       "button",
       "title"
     ]
   },
   {
-    "id": "section",
+    "id": "images",
     "components": [
-      "text",
-      "images",
-      "image",
-      "button",
-      "title",
-      "hero",
-      "cards",
-      "quote",
-      "columns",
-      "fragment",
-      "embed",
-      "table",
-      "video",
-      "accordion",
-      "breadcrumbs",
-      "carousel",
-      "modal",
-      "search",
-      "tabs"
+      "image"
     ]
   }
 ]
