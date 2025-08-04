@@ -5,7 +5,7 @@ export default function decorate(block) {
 
   // Create the unordered list structure
   const ul = document.createElement('ul');
-  
+
   // Item 1
   const li1 = document.createElement('li');
   li1.textContent = 'Item 1';
@@ -14,22 +14,22 @@ export default function decorate(block) {
   // Item 2 with nested list
   const li2 = document.createElement('li');
   li2.textContent = 'Item 2';
-  
+
   // Nested unordered list for Item 2
   const nestedUl = document.createElement('ul');
-  
+
   const li2a = document.createElement('li');
   li2a.textContent = 'Item 2a';
   nestedUl.appendChild(li2a);
-  
+
   const li2b = document.createElement('li');
   li2b.textContent = 'Item 2b';
   nestedUl.appendChild(li2b);
-  
+
   const li2c = document.createElement('li');
   li2c.textContent = 'Item 2c';
   nestedUl.appendChild(li2c);
-  
+
   li2.appendChild(nestedUl);
   ul.appendChild(li2);
 
@@ -43,7 +43,7 @@ export default function decorate(block) {
 
   // Create the ordered list structure
   const ol = document.createElement('ol');
-  
+
   // First
   const oli1 = document.createElement('li');
   oli1.textContent = 'First';
@@ -52,22 +52,22 @@ export default function decorate(block) {
   // Second with nested ordered list
   const oli2 = document.createElement('li');
   oli2.textContent = 'Second';
-  
+
   // Nested ordered list for Second
   const nestedOl = document.createElement('ol');
-  
+
   const oli2a = document.createElement('li');
   oli2a.textContent = 'Second-Sub-1';
   nestedOl.appendChild(oli2a);
-  
+
   const oli2b = document.createElement('li');
   oli2b.textContent = 'Second-Sub-2';
   nestedOl.appendChild(oli2b);
-  
+
   const oli2c = document.createElement('li');
   oli2c.textContent = 'Second-Sub-3';
   nestedOl.appendChild(oli2c);
-  
+
   oli2.appendChild(nestedOl);
   ol.appendChild(oli2);
 
