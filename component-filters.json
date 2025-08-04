@@ -8,7 +8,7 @@
   {
     "id": "section",
     "components": [
-      "headings",
+      "heading",
       "text",
       "images",
       "image",
