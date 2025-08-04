@@ -2,46 +2,65 @@
 import { toClassName } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
-  // build tablist
+  // タブリストコンテナ作成
   const tablist = document.createElement('div');
   tablist.className = 'tabs-list';
   tablist.setAttribute('role', 'tablist');
 
-  // decorate tabs and tabpanels
-  const tabs = [...block.children];
-  tabs.forEach((tab, i) => {
-    const id = toClassName(tab.textContent) || i + 1;
+  const tabBlocks = [...block.children]; // 各 <div> タブブロック
+  const panels = [];
 
-    // decorate tabpanel
-    const tabpanel = block.children[i];
-    tabpanel.className = 'tabs-panel';
-    tabpanel.id = `tabpanel-${id}`;
-    tabpanel.setAttribute('aria-hidden', !!i);
-    tabpanel.setAttribute('aria-labelledby', `tabpanel-${id}`);
-    tabpanel.setAttribute('role', 'tabpanel');
+  tabBlocks.forEach((tabBlock, i) => {
+    const [labelWrapper, contentWrapper] = [...tabBlock.children];
+    const labelEl = labelWrapper?.querySelector('div, p') || labelWrapper;
+    const contentEl = contentWrapper || tabBlock;
 
-    // build tab button
+    const labelText = labelEl?.textContent?.trim() || `Tab ${i + 1}`;
+    const id = toClassName(labelText);
+
+    // タブボタン作成
     const button = document.createElement('button');
     button.className = 'tabs-tab';
     button.id = `tab-${id}`;
-    button.innerHTML = tab.innerHTML;
-    button.setAttribute('aria-controls', `tab-${id}`);
+    button.innerHTML = labelEl?.innerHTML || labelText;
+    button.setAttribute('aria-controls', `tabpanel-${id}`);
     button.setAttribute('aria-selected', !i);
     button.setAttribute('role', 'tab');
     button.setAttribute('type', 'button');
+
+    // クリックイベント
     button.addEventListener('click', () => {
-      block.querySelectorAll('[role=tabpanel]').forEach((panel) => {
-        panel.setAttribute('aria-hidden', true);
-      });
-      tablist.querySelectorAll('button').forEach((btn) => {
-        btn.setAttribute('aria-selected', false);
-      });
-      tabpanel.setAttribute('aria-hidden', false);
-      button.setAttribute('aria-selected', true);
+      block.querySelectorAll('.tabs-panel').forEach((panel) =>
+        panel.setAttribute('aria-hidden', 'true')
+      );
+      tablist.querySelectorAll('.tabs-tab').forEach((btn) =>
+        btn.setAttribute('aria-selected', 'false')
+      );
+      panel.setAttribute('aria-hidden', 'false');
+      button.setAttribute('aria-selected', 'true');
     });
-    tablist.append(button);
-    tab.remove();
+
+    tablist.appendChild(button);
+
+    // タブパネル作成
+    const panel = document.createElement('div');
+    panel.className = 'tabs-panel';
+    panel.id = `tabpanel-${id}`;
+    panel.setAttribute('aria-hidden', !!i);
+    panel.setAttribute('aria-labelledby', `tab-${id}`);
+    panel.setAttribute('role', 'tabpanel');
+
+    const innerWrapper = document.createElement('div');
+    while (contentEl.firstChild) {
+      innerWrapper.appendChild(contentEl.firstChild);
+    }
+
+    panel.appendChild(innerWrapper);
+    panels.push(panel);
   });
 
-  block.prepend(tablist);
+  // DOMに追加
+  block.innerHTML = '';
+  block.appendChild(tablist);
+  panels.forEach((p) => block.appendChild(p));
 }
