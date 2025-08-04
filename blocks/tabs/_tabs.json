@@ -37,9 +37,9 @@
       "fields": [
         {
           "component": "text",
-          "valueType": "string",
           "name": "tablabel",
-          "label": "Tab Label"
+          "label": "Tab Label",
+          "valueType": "string"
         },
         {
           "component": "richtext",
