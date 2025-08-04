@@ -273,6 +273,34 @@
     ]
   },
   {
+    "id": "list-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content",
+        "label": "Content",
+        "multi": false
+      },
+      {
+        "component": "select",
+        "name": "type",
+        "label": "List Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Unordered",
+            "value": "ul"
+          },
+          {
+            "name": "Ordered",
+            "value": "ol"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "quote",
     "fields": [
       {
