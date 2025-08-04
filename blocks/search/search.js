@@ -220,8 +220,8 @@ function searchInput(block, config) {
   input.setAttribute('type', 'search');
   input.className = 'search-input';
   input.setAttribute('name', 'q');
-  console.log(`config: ${config}`);
-  console.log(`config.placeholders: ${config.placeholders}`);
+  console.log(`config: ${JSON.stringify(config)}`);
+  console.log(`config.placeholders: ${JSON.stringify(config.placeholders)}`);
   console.log(`config.placeholders.searchPlaceholder: ${config.placeholders.searchPlaceholder}`);
 
   const searchPlaceholder = config.placeholders.searchPlaceholder || 'Search...';
