@@ -335,7 +335,7 @@
         "required": true
       },
       {
-        "component": "text",
+        "component": "richtext",
         "name": "tabText",
         "label": "Tab Content",
         "valueType": "string"
