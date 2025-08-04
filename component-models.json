@@ -329,9 +329,9 @@
     "fields": [
       {
         "component": "text",
+        "valueType": "string",
         "name": "tab",
         "label": "Tab Label",
-        "valueType": "string",
         "required": true
       },
       {
