@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
-import { toClassName, moveInstrumentation } from '../../scripts/aem.js';
+import { toClassName } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
 
 /**
  * Extracts tab data from Universal Editor structure
