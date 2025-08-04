@@ -369,8 +369,8 @@
     "fields": [
       {
         "component": "text",
-        "name": "triggerText",
-        "label": "Trigger Text",
+        "name": "label",
+        "label": "Label",
         "valueType": "string"
       },
       {
