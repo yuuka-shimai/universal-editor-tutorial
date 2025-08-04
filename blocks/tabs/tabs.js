@@ -2,33 +2,37 @@
 import { toClassName } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
-  // build tablist
   const tablist = document.createElement('div');
   tablist.className = 'tabs-list';
   tablist.setAttribute('role', 'tablist');
 
-  // decorate tabs and tabpanels
-  const tabs = [...block.children].map((child) => child.firstElementChild);
-  tabs.forEach((tab, i) => {
-    const id = toClassName(tab.textContent) || i + 1;
+  const tabs = [...block.children];
 
-    // decorate tabpanel
-    const tabpanel = block.children[i];
-    tabpanel.className = 'tabs-panel';
-    tabpanel.id = `tabpanel-${id}`;
-    tabpanel.setAttribute('aria-hidden', !!i);
-    tabpanel.setAttribute('aria-labelledby', `tab-${id}`);
-    tabpanel.setAttribute('role', 'tabpanel');
+  tabs.forEach((tab, i) => {
+    const tabLabelEl = tab.querySelector(':scope > div > p'); // Tab Label を取得（構造により調整可）
+    const tabTextEl = tab.querySelector(':scope > div + div'); // Tab Text を含むパネル部分
+
+    const labelText = tabLabelEl?.textContent?.trim() || `Tab ${i + 1}`;
+    const id = toClassName(labelText) || `tab${i + 1}`;
 
     // build tab button
     const button = document.createElement('button');
     button.className = 'tabs-tab';
     button.id = `tab-${id}`;
-    button.innerHTML = tab.innerHTML;
+    button.innerHTML = tabLabelEl?.innerHTML || labelText;
     button.setAttribute('aria-controls', `tabpanel-${id}`);
     button.setAttribute('aria-selected', !i);
     button.setAttribute('role', 'tab');
     button.setAttribute('type', 'button');
+
+    // set panel attributes
+    tabTextEl.classList.add('tabs-panel');
+    tabTextEl.id = `tabpanel-${id}`;
+    tabTextEl.setAttribute('aria-hidden', !!i);
+    tabTextEl.setAttribute('aria-labelledby', `tab-${id}`);
+    tabTextEl.setAttribute('role', 'tabpanel');
+
+    // click behavior
     button.addEventListener('click', () => {
       block.querySelectorAll('[role=tabpanel]').forEach((panel) => {
         panel.setAttribute('aria-hidden', true);
@@ -36,11 +40,12 @@ export default async function decorate(block) {
       tablist.querySelectorAll('button').forEach((btn) => {
         btn.setAttribute('aria-selected', false);
       });
-      tabpanel.setAttribute('aria-hidden', false);
+      tabTextEl.setAttribute('aria-hidden', false);
       button.setAttribute('aria-selected', true);
     });
-    tablist.append(button);
-    tab.remove();
+
+    tablist.appendChild(button);
+    tabLabelEl.remove(); // 元のラベル削除（重複防止）
   });
 
   block.prepend(tablist);
