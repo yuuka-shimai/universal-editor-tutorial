@@ -278,15 +278,40 @@
     "id": "table",
     "fields": [
       {
-        "component": "table",
-        "name": "tableData",
-        "label": "Table Data"
-      },
-      {
         "component": "text",
         "name": "caption",
         "label": "Table Caption",
         "valueType": "string"
+      },
+      {
+        "component": "array",
+        "name": "columns",
+        "label": "Columns",
+        "item": {
+          "component": "text",
+          "label": "Column Header",
+          "name": "header"
+        }
+      },
+      {
+        "component": "array",
+        "name": "rows",
+        "label": "Rows",
+        "item": {
+          "component": "object",
+          "fields": [
+            {
+              "component": "array",
+              "name": "cells",
+              "label": "Cells",
+              "item": {
+                "component": "text",
+                "label": "Cell Data",
+                "name": "cell"
+              }
+            }
+          ]
+        }
       }
     ]
   },
