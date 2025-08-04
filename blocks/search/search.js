@@ -1,4 +1,4 @@
-import { readBlockConfig } from '../../scripts/scripts.js';
+import { readBlockConfig } from '../../scripts/aem.js';
 
 export default function decorate(block) {
   const config = readBlockConfig(block);
@@ -18,4 +18,3 @@ export default function decorate(block) {
   block.innerHTML = '';
   block.appendChild(wrapper);
 }
-
