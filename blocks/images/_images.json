@@ -33,29 +33,18 @@
   ],
   "models": [
     {
-      "id": "images",
+      "id": "image",
       "fields": [
         {
-          "component": "multientry",
-          "name": "items",
-          "label": "Images",
-          "fields": [
-            {
-              "component": "reference",
-              "name": "image",
-              "label": "Image"
-            },
-            {
-              "component": "text",
-              "name": "alt",
-              "label": "Alt Text"
-            },
-            {
-              "component": "text",
-              "name": "caption",
-              "label": "Caption"
-            }
-          ]
+          "component": "reference",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "name": "imageAlt",
+          "label": "Alt Text"
         }
       ]
     }
