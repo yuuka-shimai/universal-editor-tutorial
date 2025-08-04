@@ -11,24 +11,24 @@ function extractTabData(tabBlock) {
   // Check for Universal Editor structure (tablabel and tabtext)
   const tablabelEl = tabBlock.querySelector('[data-aue-prop="tablabel"]');
   const tabtextEl = tabBlock.querySelector('[data-aue-prop="tabtext"]');
-  
+
   if (tablabelEl && tabtextEl) {
     return {
       label: tablabelEl.textContent?.trim() || 'Tab',
       content: tabtextEl,
-      isUniversalEditor: true
+      isUniversalEditor: true,
     };
   }
-  
+
   // Fallback to traditional structure
   const [labelWrapper, contentWrapper] = [...tabBlock.children];
   const labelEl = labelWrapper?.querySelector('div, p') || labelWrapper;
   const contentEl = contentWrapper || tabBlock;
-  
+
   return {
     label: labelEl?.textContent?.trim() || 'Tab',
     content: contentEl,
-    isUniversalEditor: false
+    isUniversalEditor: false,
   };
 }
 
@@ -49,12 +49,12 @@ function createTabButton(label, id, isActive, originalElement) {
   button.setAttribute('aria-selected', isActive);
   button.setAttribute('role', 'tab');
   button.setAttribute('type', 'button');
-  
+
   // Move Universal Editor instrumentation to the button
   if (originalElement) {
     moveInstrumentation(originalElement, button);
   }
-  
+
   return button;
 }
 
@@ -73,9 +73,9 @@ function createTabPanel(id, isActive, contentEl, isUniversalEditor) {
   panel.setAttribute('aria-hidden', !isActive);
   panel.setAttribute('aria-labelledby', `tab-${id}`);
   panel.setAttribute('role', 'tabpanel');
-  
+
   const innerWrapper = document.createElement('div');
-  
+
   if (isUniversalEditor) {
     // For Universal Editor, clone the content to preserve instrumentation
     innerWrapper.appendChild(contentEl.cloneNode(true));
@@ -85,7 +85,7 @@ function createTabPanel(id, isActive, contentEl, isUniversalEditor) {
       innerWrapper.appendChild(contentEl.firstChild);
     }
   }
-  
+
   panel.appendChild(innerWrapper);
   return panel;
 }
@@ -101,21 +101,21 @@ function switchTab(block, activeButton, activePanel) {
   block.querySelectorAll('.tabs-panel').forEach((panel) => {
     panel.setAttribute('aria-hidden', 'true');
   });
-  
+
   block.querySelectorAll('.tabs-tab').forEach((button) => {
     button.setAttribute('aria-selected', 'false');
   });
-  
+
   // Show active panel and activate button
   activePanel.setAttribute('aria-hidden', 'false');
   activeButton.setAttribute('aria-selected', 'true');
-  
+
   // Dispatch custom event for analytics or other integrations
   block.dispatchEvent(new CustomEvent('tabchange', {
     detail: {
       activeTab: activeButton.id,
-      activePanel: activePanel.id
-    }
+      activePanel: activePanel.id,
+    },
   }));
 }
 
@@ -126,8 +126,8 @@ function switchTab(block, activeButton, activePanel) {
 function addKeyboardNavigation(tablist) {
   tablist.addEventListener('keydown', (e) => {
     const buttons = [...tablist.querySelectorAll('.tabs-tab')];
-    const currentIndex = buttons.findIndex(button => button === e.target);
-    
+    const currentIndex = buttons.findIndex((button) => button === e.target);
+
     let nextIndex;
     switch (e.key) {
       case 'ArrowLeft':
@@ -163,60 +163,60 @@ export default async function decorate(block) {
   const tablist = document.createElement('div');
   tablist.className = 'tabs-list';
   tablist.setAttribute('role', 'tablist');
-  
+
   const tabBlocks = [...block.children];
   const panels = [];
   const buttons = [];
-  
+
   // Process each tab block
   tabBlocks.forEach((tabBlock, index) => {
     const tabData = extractTabData(tabBlock);
     const id = toClassName(tabData.label) || `tab-${index + 1}`;
     const isActive = index === 0;
-    
+
     // Create tab button
     const button = createTabButton(
-      tabData.label, 
-      id, 
-      isActive, 
-      tabData.isUniversalEditor ? tabBlock.querySelector('[data-aue-prop="tablabel"]') : null
+      tabData.label,
+      id,
+      isActive,
+      tabData.isUniversalEditor ? tabBlock.querySelector('[data-aue-prop="tablabel"]') : null,
     );
-    
+
     // Create tab panel
     const panel = createTabPanel(id, isActive, tabData.content, tabData.isUniversalEditor);
-    
+
     // Add click handler
     button.addEventListener('click', () => {
       switchTab(block, button, panel);
     });
-    
+
     buttons.push(button);
     panels.push(panel);
     tablist.appendChild(button);
   });
-  
+
   // Add keyboard navigation
   addKeyboardNavigation(tablist);
-  
+
   // Clear the block and rebuild with new structure
   block.innerHTML = '';
   block.appendChild(tablist);
   panels.forEach((panel) => {
     block.appendChild(panel);
   });
-  
+
   // Set initial focus management
   const firstButton = buttons[0];
   if (firstButton) {
     firstButton.setAttribute('tabindex', '0');
-    buttons.slice(1).forEach(button => {
+    buttons.slice(1).forEach((button) => {
       button.setAttribute('tabindex', '-1');
     });
   }
-  
+
   // Update tabindex on tab changes
   block.addEventListener('tabchange', (e) => {
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
       button.setAttribute('tabindex', button.id === e.detail.activeTab ? '0' : '-1');
     });
   });
