@@ -330,12 +330,12 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "tab",
+        "name": "tablabel",
         "label": "Tab Label"
       },
       {
         "component": "richtext",
-        "name": "tabText",
+        "name": "tabtext",
         "label": "Tab Text",
         "valueType": "string"
       }
