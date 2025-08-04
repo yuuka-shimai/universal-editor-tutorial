@@ -231,6 +231,188 @@
         "name": "author",
         "label": "Author",
         "value": ""
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Background Color",
+        "description": "The quote background color",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Red",
+            "value": "bg-red"
+          },
+          {
+            "name": "Green",
+            "value": "bg-green"
+          },
+          {
+            "name": "Blue",
+            "value": "bg-blue"
+          }
+        ]
+      }
+    ]
+  },
+    {
+    "id": "embed",
+    "fields": [
+      {
+        "component": "text",
+        "name": "url",
+        "label": "Embed URL",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "text",
+        "name": "description",
+        "label": "Description",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "table",
+    "fields": [
+      {
+        "component": "table",
+        "name": "tableData",
+        "label": "Table Data"
+      },
+      {
+        "component": "text",
+        "name": "caption",
+        "label": "Table Caption",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "video",
+    "fields": [
+      {
+        "component": "text",
+        "name": "videoUrl",
+        "label": "Video URL",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "text",
+        "name": "caption",
+        "label": "Caption",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "accordion",
+    "fields": [
+      {
+        "component": "multientry",
+        "name": "items",
+        "label": "Accordion Items",
+        "fields": [
+          {
+            "component": "text",
+            "name": "label",
+            "label": "Label",
+            "valueType": "string"
+          },
+          {
+            "component": "richtext",
+            "name": "content",
+            "label": "Content",
+            "valueType": "string"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "breadcrumbs",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "breadcrumbItems",
+        "label": "Breadcrumb Items"
+      }
+    ]
+  },
+  {
+    "id": "carousel",
+    "fields": [
+      {
+        "component": "multientry",
+        "name": "slides",
+        "label": "Slides",
+        "fields": [
+          {
+            "component": "reference",
+            "name": "image",
+            "label": "Image"
+          },
+          {
+            "component": "richtext",
+            "name": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "modal",
+    "fields": [
+      {
+        "component": "text",
+        "name": "label",
+        "label": "Label",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "modalContent",
+        "label": "Modal Content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "search",
+    "fields": [
+      {
+        "component": "text",
+        "name": "placeholder",
+        "label": "Placeholder Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "tabs",
+    "fields": [
+      {
+        "component": "multientry",
+        "name": "tabs",
+        "label": "Tabs",
+        "fields": [
+          {
+            "component": "text",
+            "name": "label",
+            "label": "Tab Label",
+            "valueType": "string"
+          },
+          {
+            "component": "richtext",
+            "name": "content",
+            "label": "Tab Content",
+            "valueType": "string"
+          }
+        ]
       }
     ]
   }

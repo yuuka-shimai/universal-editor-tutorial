@@ -5,19 +5,7 @@
       "section"
     ]
   },
-  {
-    "id": "section",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "title",
-      "hero",
-      "cards",
-      "columns",
-      "fragment"
-    ]
-  },
+
   {
     "id": "cards",
     "components": [
@@ -48,8 +36,18 @@
       "title",
       "hero",
       "cards",
+      "quote",
       "columns",
-      "quote"
+      "fragment",
+      "embed",
+      "table",
+      "video",
+      "accordion",
+      "breadcrumbs",
+      "carousel",
+      "modal",
+      "search",
+      "tabs"
     ]
   }
 ]
