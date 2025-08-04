@@ -199,7 +199,7 @@
       },
       {
         "component": "select",
-        "name": "titleType",
+        "name": "headingtype",
         "label": "Heading Type",
         "options": [
           {
