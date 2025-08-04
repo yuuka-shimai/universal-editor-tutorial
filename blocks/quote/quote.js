@@ -1,6 +1,4 @@
 export default function decorate(block) {
-  console.log("t4e")
-  console.log(JSON.stringify(block))
   const [quoteWrapper] = block.children;
 
   const blockquote = document.createElement('blockquote');
