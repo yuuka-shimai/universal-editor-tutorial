@@ -39,7 +39,6 @@ export default function decorate(block) {
         }
         currentList = listStack[listStack.length - 1];
         currentLevel = level;
-        
         // Check if we need to change list type at this level
         if (currentList.tagName.toLowerCase() !== type) {
           listStack.pop();
