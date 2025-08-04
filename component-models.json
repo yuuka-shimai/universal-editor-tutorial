@@ -411,7 +411,7 @@
     "fields": [
       {
         "component": "text",
-        "name": "placeholder",
+        "name": "searchPlaceholder",
         "label": "Placeholder Text",
         "valueType": "string"
       }
