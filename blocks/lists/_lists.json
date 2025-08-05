@@ -57,6 +57,15 @@
               "value": "ol"
             }
           ]
+        },
+        {
+          "component": "number",
+          "name": "level",
+          "label": "Nest Level",
+          "valueType": "number",
+          "min": 0,
+          "max": 5,
+          "step": 1
         }
       ]
     }

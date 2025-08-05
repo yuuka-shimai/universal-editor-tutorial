@@ -1,8 +1,4 @@
 export default function decorate(block) {
-  // Create the wrapper div with class
-  const wrapper = document.createElement('div');
-  wrapper.className = 'default-content-wrapper';
-
   const listStack = []; // Stack to keep track of nested lists
   let currentList = null;
   let currentListType = null;
@@ -40,13 +36,13 @@ export default function decorate(block) {
         currentList = listStack[listStack.length - 1];
         currentLevel = level;
         // Check if we need to change list type at this level
-        if (currentList.tagName.toLowerCase() !== type) {
+        if (currentList && currentList.tagName.toLowerCase() !== type) {
           listStack.pop();
           currentList = document.createElement(type);
           listStack.push(currentList);
           if (level === 0) {
-            wrapper.appendChild(currentList);
-          } else {
+            block.appendChild(currentList);
+          } else if (listStack.length > 0) {
             const parentList = listStack[listStack.length - 2];
             const lastLi = parentList.lastElementChild;
             lastLi.appendChild(currentList);
@@ -58,31 +54,36 @@ export default function decorate(block) {
         if (level === 0) {
           currentList = document.createElement(type);
           listStack[0] = currentList;
-          wrapper.appendChild(currentList);
+          block.appendChild(currentList);
         } else {
           listStack.pop();
           currentList = document.createElement(type);
           listStack.push(currentList);
-          const parentList = listStack[listStack.length - 2];
-          const lastLi = parentList.lastElementChild;
-          lastLi.appendChild(currentList);
+          if (listStack.length > 1) {
+            const parentList = listStack[listStack.length - 2];
+            const lastLi = parentList.lastElementChild;
+            lastLi.appendChild(currentList);
+          }
         }
         currentListType = type;
       }
 
-      // Add top-level lists to wrapper
-      if (level === 0 && !wrapper.contains(currentList)) {
-        wrapper.appendChild(currentList);
+      // Add top-level lists to block directly
+      if (level === 0 && !block.contains(currentList)) {
+        block.appendChild(currentList);
       }
 
       // Create list item
       const li = document.createElement('li');
       li.textContent = content;
-      currentList.appendChild(li);
+      if (currentList) {
+        currentList.appendChild(li);
+      }
     }
   });
 
-  // Clear the block and append the wrapper
+  // Clear the original table structure but keep the lists
+  const lists = [...block.querySelectorAll('ul, ol')];
   block.textContent = '';
-  block.appendChild(wrapper);
+  lists.forEach(list => block.appendChild(list));
 }
