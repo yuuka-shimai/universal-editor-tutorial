@@ -77,5 +77,74 @@
         "list-item"
       ]
     }
-  ]
+  ],
+  "sample": {
+    "data": [
+      {
+        "content": "Item 1",
+        "type": "ul",
+        "level": 0
+      },
+      {
+        "content": "Item 2",
+        "type": "ul",
+        "level": 0
+      },
+      {
+        "content": "Item 2a",
+        "type": "ul",
+        "level": 1
+      },
+      {
+        "content": "Item 2b",
+        "type": "ul",
+        "level": 1
+      },
+      {
+        "content": "Item 2c",
+        "type": "ul",
+        "level": 1
+      },
+      {
+        "content": "Item 3",
+        "type": "ul",
+        "level": 0
+      },
+      {
+        "content": "First",
+        "type": "ol",
+        "level": 0
+      },
+      {
+        "content": "Second",
+        "type": "ol",
+        "level": 0
+      },
+      {
+        "content": "Second-Sub-1",
+        "type": "ol",
+        "level": 1
+      },
+      {
+        "content": "Second-Sub-2",
+        "type": "ol",
+        "level": 1
+      },
+      {
+        "content": "Second-Sub-3",
+        "type": "ol",
+        "level": 1
+      },
+      {
+        "content": "Third",
+        "type": "ol",
+        "level": 0
+      },
+      {
+        "content": "Fourth",
+        "type": "ol",
+        "level": 0
+      }
+    ]
+  }
 }
