@@ -273,62 +273,6 @@
     ]
   },
   {
-    "id": "lists",
-    "fields": [
-      {
-        "component": "select",
-        "name": "listType",
-        "label": "List Type",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Unordered List (ul)",
-            "value": "unordered"
-          },
-          {
-            "name": "Ordered List (ol)",
-            "value": "ordered"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "list-item",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "content",
-        "label": "List Item Content",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "nestedItems",
-        "label": "Nested Items (one per line)",
-        "multi": true
-      },
-      {
-        "component": "select",
-        "name": "nestedListType",
-        "label": "Nested List Type",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Unordered (ul)",
-            "value": "unordered"
-          },
-          {
-            "name": "Ordered (ol)",
-            "value": "ordered"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "quote",
     "fields": [
       {
