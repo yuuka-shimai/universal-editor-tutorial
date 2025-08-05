@@ -85,5 +85,5 @@ export default function decorate(block) {
   // Clear the original table structure but keep the lists
   const lists = [...block.querySelectorAll('ul, ol')];
   block.textContent = '';
-  lists.forEach(list => block.appendChild(list));
+  lists.forEach((list) => block.appendChild(list));
 }
