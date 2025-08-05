@@ -19,12 +19,12 @@ export default function decorate(block) {
     if (cells.length > 1) {
       const nestedCell = cells[1];
       const nestedContent = nestedCell.textContent.trim();
-      
+
       if (nestedContent) {
         // Determine nested list type from data attribute or default to ul
         const nestedListType = nestedCell.dataset.nestedListType === 'ordered' ? 'ol' : 'ul';
         const nestedList = document.createElement(nestedListType);
-        
+
         // Split nested content by lines and create list items
         nestedContent.split('\n').forEach((nestedItem) => {
           const trimmedItem = nestedItem.trim();
@@ -34,7 +34,7 @@ export default function decorate(block) {
             nestedList.appendChild(nestedLi);
           }
         });
-        
+
         // Only append nested list if it has items
         if (nestedList.children.length > 0) {
           li.appendChild(nestedList);

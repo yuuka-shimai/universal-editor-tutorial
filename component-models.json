@@ -273,39 +273,58 @@
     ]
   },
   {
+    "id": "lists",
+    "fields": [
+      {
+        "component": "select",
+        "name": "listType",
+        "label": "List Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Unordered List (ul)",
+            "value": "unordered"
+          },
+          {
+            "name": "Ordered List (ol)",
+            "value": "ordered"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "list-item",
     "fields": [
       {
         "component": "text",
         "valueType": "string",
         "name": "content",
-        "label": "Content",
+        "label": "List Item Content",
         "multi": false
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "nestedItems",
+        "label": "Nested Items (one per line)",
+        "multi": true
+      },
+      {
         "component": "select",
-        "name": "type",
-        "label": "List Type",
+        "name": "nestedListType",
+        "label": "Nested List Type",
         "valueType": "string",
         "options": [
           {
-            "name": "Unordered",
-            "value": "ul"
+            "name": "Unordered (ul)",
+            "value": "unordered"
           },
           {
-            "name": "Ordered",
-            "value": "ol"
+            "name": "Ordered (ol)",
+            "value": "ordered"
           }
         ]
-      },
-      {
-        "component": "number",
-        "name": "level",
-        "label": "Nest Level",
-        "valueType": "number",
-        "min": 0,
-        "max": 5,
-        "step": 1
       }
     ]
   },

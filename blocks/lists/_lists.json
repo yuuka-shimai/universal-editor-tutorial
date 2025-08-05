@@ -64,32 +64,25 @@
           "multi": false
         },
         {
-          "component": "multifield",
+          "component": "text",
+          "valueType": "string",
           "name": "nestedItems",
-          "label": "Nested Items",
-          "fields": [
+          "label": "Nested Items (one per line)",
+          "multi": true
+        },
+        {
+          "component": "select",
+          "name": "nestedListType",
+          "label": "Nested List Type",
+          "valueType": "string",
+          "options": [
             {
-              "component": "text",
-              "valueType": "string",
-              "name": "nestedContent",
-              "label": "Nested Item Content",
-              "multi": false
+              "name": "Unordered (ul)",
+              "value": "unordered"
             },
             {
-              "component": "select",
-              "name": "nestedListType",
-              "label": "Nested List Type",
-              "valueType": "string",
-              "options": [
-                {
-                  "name": "Unordered (ul)",
-                  "value": "unordered"
-                },
-                {
-                  "name": "Ordered (ol)",
-                  "value": "ordered"
-                }
-              ]
+              "name": "Ordered (ol)",
+              "value": "ordered"
             }
           ]
         }
