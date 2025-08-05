@@ -33,39 +33,65 @@
   ],
   "models": [
     {
+      "id": "lists",
+      "fields": [
+        {
+          "component": "select",
+          "name": "listType",
+          "label": "List Type",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Unordered List (ul)",
+              "value": "unordered"
+            },
+            {
+              "name": "Ordered List (ol)",
+              "value": "ordered"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "list-item",
       "fields": [
         {
           "component": "text",
           "valueType": "string",
           "name": "content",
-          "label": "Content",
+          "label": "List Item Content",
           "multi": false
         },
         {
-          "component": "select",
-          "name": "type",
-          "label": "List Type",
-          "valueType": "string",
-          "options": [
+          "component": "multifield",
+          "name": "nestedItems",
+          "label": "Nested Items",
+          "fields": [
             {
-              "name": "Unordered",
-              "value": "ul"
+              "component": "text",
+              "valueType": "string",
+              "name": "nestedContent",
+              "label": "Nested Item Content",
+              "multi": false
             },
             {
-              "name": "Ordered",
-              "value": "ol"
+              "component": "select",
+              "name": "nestedListType",
+              "label": "Nested List Type",
+              "valueType": "string",
+              "options": [
+                {
+                  "name": "Unordered (ul)",
+                  "value": "unordered"
+                },
+                {
+                  "name": "Ordered (ol)",
+                  "value": "ordered"
+                }
+              ]
             }
           ]
-        },
-        {
-          "component": "number",
-          "name": "level",
-          "label": "Nest Level",
-          "valueType": "number",
-          "min": 0,
-          "max": 5,
-          "step": 1
         }
       ]
     }
