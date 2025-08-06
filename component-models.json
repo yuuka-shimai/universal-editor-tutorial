@@ -324,6 +324,21 @@
             "value": "h6"
           }
         ]
+      },
+      {
+        "component": "select",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Underline",
+            "value": "underline"
+          },
+          {
+            "name": "Leftline",
+            "value": "leftline"
+          }
+        ]
       }
     ]
   },
