@@ -256,9 +256,10 @@
           "plugins": {
             "xwalk": {
               "page": {
-                "resourceType": "core/franklin/components/text/v1/text",
+                "resourceType": "core/franklin/components/title/v1/title",
                 "template": {
-                  "name": "Heading"
+                  "name": "Heading",
+                  "model": "heading"
                 }
               }
             }
