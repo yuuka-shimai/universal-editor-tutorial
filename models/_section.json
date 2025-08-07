@@ -43,29 +43,19 @@
     {
       "id": "section",
       "components": [
-        "heading",
-        "text",
-        "images",
-        "image",
-        "button",
-        "title",
-        "hero",
+        "accordion",
         "cards",
+        "carousel",
         "columns",
+        "embed",
         "fragment",
+        "hero",
+        "modal",
         "quote",
-        "video",
         "search",
         "tabs",
-        "lists",
-        "code",
-        "embed",
-        "accordion",
-        "carousel",
-        "fragment",
-        "form",
         "table",
-        "modal"
+        "video"
       ]
     }
   ]

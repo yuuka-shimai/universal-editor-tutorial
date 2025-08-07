@@ -206,17 +206,6 @@
     ]
   },
   {
-    "id": "code",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "codecontent",
-        "label": "Code Content",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "columns",
     "fields": [
       {
@@ -261,84 +250,12 @@
     ]
   },
   {
-    "id": "form",
-    "fields": [
-      {
-        "component": "aem-content",
-        "name": "reference",
-        "label": "Form"
-      },
-      {
-        "component": "text",
-        "name": "action",
-        "label": "Action URL",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "fragment",
     "fields": [
       {
         "component": "aem-content",
         "name": "reference",
         "label": "Reference"
-      }
-    ]
-  },
-  {
-    "id": "heading",
-    "fields": [
-      {
-        "component": "text",
-        "name": "heading",
-        "label": "Heading"
-      },
-      {
-        "component": "select",
-        "name": "headingtype",
-        "label": "Heading Type",
-        "options": [
-          {
-            "name": "h1",
-            "value": "h1"
-          },
-          {
-            "name": "h2",
-            "value": "h2"
-          },
-          {
-            "name": "h3",
-            "value": "h3"
-          },
-          {
-            "name": "h4",
-            "value": "h4"
-          },
-          {
-            "name": "h5",
-            "value": "h5"
-          },
-          {
-            "name": "h6",
-            "value": "h6"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "style",
-        "label": "Style",
-        "options": [
-          {
-            "name": "Underline",
-            "value": "underline"
-          },
-          {
-            "name": "Leftline",
-            "value": "leftline"
-          }
-        ]
       }
     ]
   },
@@ -365,51 +282,6 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "image",
-    "fields": [
-      {
-        "component": "reference",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "name": "imageAlt",
-        "label": "Alt Text"
-      }
-    ]
-  },
-  {
-    "id": "lists",
-    "fields": [
-      {
-        "component": "group",
-        "name": "listsettings",
-        "label": "List Settings",
-        "collapsible": true,
-        "fields": [
-          {
-            "component": "select",
-            "name": "listtype",
-            "label": "List Type",
-            "valueType": "string",
-            "options": [
-              {
-                "name": "Unordered List (ul)",
-                "value": "unordered"
-              },
-              {
-                "name": "Ordered List (ol)",
-                "value": "ordered"
-              }
-            ]
-          }
-        ]
       }
     ]
   },
